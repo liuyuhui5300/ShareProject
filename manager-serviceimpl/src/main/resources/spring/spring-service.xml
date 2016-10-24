@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 启用注解，并定义组件查找规则 ，service层只负责扫描@Service -->
+    <context:component-scan base-package="com.shitou.soa.gateway.api.**.proxy">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!-- 启用注解，并定义组件查找规则 ，service层只负责扫描@Service -->
+    <context:component-scan base-package="com.shitou.soa.**.serviceimpl">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+    </context:component-scan>
+
+    <!-- 启用注解framework里的Compoment -->
+    <context:component-scan base-package="com.shitou.framework">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+
+    <context:component-scan base-package="com.shitou.soa.gateway.config">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+
+    <!-- 异步线程池 -->
+    <bean id="threadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <!-- 核心线程数  -->
+        <property name="corePoolSize" value="5"/>
+        <!-- 最大线程数 -->
+        <property name="maxPoolSize" value="5"/>
+    </bean>
+
+    <bean id="metricsFactory" class="com.shitou.metrics.MetricsFactory">
+        <property name="reporters">
+            <list>
+                <bean id="kreporter" class="com.shitou.metrics.reporter.KairosdbReporter">
+                    <property name="serverUrl" value="${metrics.serverUrl}"></property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="curatorLock" class="com.shitou.soa.gateway.config.CuratorLock" init-method="init" destroy-method="destroy" scope="singleton"></bean>
+</beans>
