@@ -19,10 +19,10 @@
 			<version>${com.manager.version}</version>
 	  	</dependency>
 	  	
-	  	<dependency>
+	 <!--  	<dependency>
 	  		<groupId>com.manager</groupId>
 			<artifactId>manager-framework</artifactId>
 			<version>${com.manager.version}</version>
-	  	</dependency>
+	  	</dependency> -->
   </dependencies>
 </project>

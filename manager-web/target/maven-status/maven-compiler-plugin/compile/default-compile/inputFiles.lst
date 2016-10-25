@@ -1,0 +1,9 @@
+E:\git\manager\manager-web\src\main\java\com\manager\cache\RedisDao.java
+E:\git\manager\manager-web\src\main\java\com\manager\listener\InitCompoment.java
+E:\git\manager\manager-web\src\main\java\com\manager\bean\MsgpackRedisSerializer.java
+E:\git\manager\manager-web\src\main\java\com\manager\listener\InitServletContextListener.java
+E:\git\manager\manager-web\src\main\java\com\manager\cache\BaseRedis.java
+E:\git\manager\manager-web\src\main\java\com\manager\bean\AuthorizationInterceptor.java
+E:\git\manager\manager-web\src\main\java\com\manager\bean\JacksonObjectMapper.java
+E:\git\manager\manager-web\src\main\java\com\manager\bean\ResponseHeadInterceptor.java
+E:\git\manager\manager-web\src\main\java\com\manager\bean\MappingJsonP2HttpMessageConverter.java

@@ -21,7 +21,7 @@
 		<maven-war-plugin.version>2.4</maven-war-plugin.version>
 		<maven-jar-plugin.version>2.6</maven-jar-plugin.version>
 		
-		<springframework.version>3.2.9.RELEASE</springframework.version>
+		<springframework.version>4.1.2.RELEASE</springframework.version>
 		<spring-data-redis.version>1.4.1.RELEASE</spring-data-redis.version>
 		<jedis.version>2.6.1</jedis.version>
 		<aspectj.version>1.8.4</aspectj.version>
@@ -205,7 +205,7 @@
 			<version>2.4.1</version>
 		</dependency>
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-redis</artifactId>
 			<version>${spring-data-redis.version}</version>
@@ -215,7 +215,13 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>${jedis.version}</version>
-		</dependency> -->
+		</dependency>
+		
+		<dependency>
+		  <groupId>javax.validation</groupId>
+		  <artifactId>validation-api</artifactId>
+		  <version>1.1.0.Final</version>
+		</dependency>
 	
   </dependencies>
   <modules>
