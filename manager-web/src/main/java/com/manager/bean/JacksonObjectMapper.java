@@ -4,13 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * <pre>
- * 类描述： 
- * 创建人：仲李  
- * 联系方式：oathleo@gmail.com  18516152819
- * 创建时间：2015年3月16日 下午7:38:03 
- * @version
- * </pre>
+ * 
+ * <br>创建日期：2016年10月25日
+ * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
  */
 public class JacksonObjectMapper extends ObjectMapper {
 

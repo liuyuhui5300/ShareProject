@@ -3,13 +3,12 @@ package com.manager.bean;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
 /**
- * <pre>
- * 类描述： 
- * 创建人：仲李  
- * 联系方式：oathleo@gmail.com  18516152819
- * 创建时间：2015年3月11日 下午4:22:13 
- * @version
- * </pre>
+ * 
+ * <br>创建日期：2016年10月25日
+ * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
  */
 public class MappingJsonP2HttpMessageConverter extends MappingJackson2HttpMessageConverter {
 

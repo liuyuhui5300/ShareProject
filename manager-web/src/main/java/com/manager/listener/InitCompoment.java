@@ -9,11 +9,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.ServletContextAware;
 
 /**
- * 类描述: <br>
- * 创建时间: 2016年4月15日 上午10:46:50 <br>
  * 
- * @author 仲李
- * @version
+ * <br>创建日期：2016年10月25日
+ * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
  */
 @Component
 public class InitCompoment implements InitializingBean, ServletContextAware {

@@ -7,11 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoaderListener;
 
 /**
- * 类描述: <br>
- * 创建时间: 2016年5月18日 下午7:05:07 <br>
  * 
- * @author 仲李
- * @version
+ * <br>创建日期：2016年10月25日
+ * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
  */
 public class InitServletContextListener extends ContextLoaderListener {
 

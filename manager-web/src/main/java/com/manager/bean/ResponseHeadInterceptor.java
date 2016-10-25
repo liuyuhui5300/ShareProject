@@ -6,15 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-/**  
-* <pre>
-* 类描述： 
-* 创建人：仲李  
-* 联系方式：oathleo@gmail.com  18516152819
-* 创建时间：2015年3月28日 下午4:22:43 
-* @version 
-*  </pre>
-*/
+/**
+ * 
+ * <br>创建日期：2016年10月25日
+ * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
+ */
 public class ResponseHeadInterceptor implements HandlerInterceptor {
 
     @Override
