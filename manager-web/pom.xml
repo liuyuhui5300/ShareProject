@@ -8,13 +8,16 @@
   <artifactId>manager-web</artifactId>
   <packaging>war</packaging>
   
+  <properties>
+  		<war_name>manager-web</war_name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   <dependencies>
   	<dependency>
   		<groupId>com.manager</groupId>
 		<artifactId>manager-serviceimpl</artifactId>
 		<version>${com.manager.version}</version>
   	</dependency>
-  	
   </dependencies>
   
   <profiles>
@@ -23,15 +26,15 @@
 			<properties>
 				<env>dev</env>
 			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 		</profile>
 		<profile>
 			<id>test</id>
 			<properties>
 				<env>test</env>
 			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<profile>
 			<id>product</id>

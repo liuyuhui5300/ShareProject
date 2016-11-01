@@ -9,24 +9,24 @@
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
-    <!-- 启用注解，并定义组件查找规则 ，service层只负责扫描@Service -->
+    <!-- 启用注解，并定义组件查找规则 ，service层只负责扫描@Service
     <context:component-scan base-package="com.shitou.soa.gateway.api.**.proxy">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
-    <!-- 启用注解，并定义组件查找规则 ，service层只负责扫描@Service -->
+    启用注解，并定义组件查找规则 ，service层只负责扫描@Service
     <context:component-scan base-package="com.shitou.soa.**.serviceimpl">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
-    <!-- 启用注解framework里的Compoment -->
+    启用注解framework里的Compoment
     <context:component-scan base-package="com.shitou.framework">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
     </context:component-scan>
 
     <context:component-scan base-package="com.shitou.soa.gateway.config">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
-    </context:component-scan>
+    </context:component-scan> -->
 
     <!-- 异步线程池 -->
     <bean id="threadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
@@ -36,7 +36,7 @@
         <property name="maxPoolSize" value="5"/>
     </bean>
 
-    <bean id="metricsFactory" class="com.shitou.metrics.MetricsFactory">
+ <!--    <bean id="metricsFactory" class="com.shitou.metrics.MetricsFactory">
         <property name="reporters">
             <list>
                 <bean id="kreporter" class="com.shitou.metrics.reporter.KairosdbReporter">
@@ -44,8 +44,6 @@
                 </bean>
             </list>
         </property>
-    </bean>
-
-
-    <bean id="curatorLock" class="com.shitou.soa.gateway.config.CuratorLock" init-method="init" destroy-method="destroy" scope="singleton"></bean>
+    </bean> -->
+   <!--  <bean id="curatorLock" class="com.shitou.soa.gateway.config.CuratorLock" init-method="init" destroy-method="destroy" scope="singleton"></bean> -->
 </beans>

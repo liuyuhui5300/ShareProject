@@ -7,33 +7,42 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!-- 启用注解，并定义组件查找规则 ，mvc层只负责扫描@Controller -->
+   <context:component-scan base-package="com.manager.controller"  use-default-filters="false">
+   		 <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+   </context:component-scan>
    
-   <context:component-scan base-package="com.manager" />
-   <aop:aspectj-autoproxy />
-	
-	<mvc:annotation-driven>
-		<mvc:message-converters register-defaults="true">
-			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<value>text/html;charset=UTF-8</value>
-						<value>text/plain;charset=UTF-8</value>
-					</list>
-				</property>
-				<property name="writeAcceptCharset" value="false" />
-			</bean>
-			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-				<property name="supportedMediaTypes">
-					<list>
-						<value>application/json;charset=UTF-8</value>
-						<value>application/x-www-form-urlencoded;charset=UTF-8</value>
-					</list>
-				</property>
-			</bean>
-
-		</mvc:message-converters>
-	</mvc:annotation-driven>
+   <!-- 启用AspectJ对Annotation的支持 -->
+    <aop:aspectj-autoproxy/>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    
+    <!-- servlet适配器，这里必须明确声明，因为spring默认没有初始化该适配器 -->
+    <bean id="servletHandlerAdapter" class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter"/>
+    
+    <!-- 异常处理 -->
+    <bean id="handlerExceptionResolver" class="com.manager.framework.web.resolver.ControllerJsonExceptionResolver"/>
+   
+    <!-- 参数绑定和校验ConversionService -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.manager.framework.web.converter.StringToBigDecimalConverter"/>
+                <bean class="com.manager.framework.web.converter.StringToBooleanConverter"/>
+                <bean class="com.manager.framework.web.converter.StringToColorConverter"/>
+                <bean class="com.manager.framework.web.converter.StringToDateConverter"/>
+                <bean class="com.manager.framework.web.converter.StringToIntConverter"/>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- jsp 路径处理 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+   
+    <mvc:resources location="/images/" mapping="/images/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
 </beans>
