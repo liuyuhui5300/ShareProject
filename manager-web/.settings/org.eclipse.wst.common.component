@@ -13,7 +13,10 @@
         <dependent-module archiveName="manager-domain-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/manager-domain/manager-domain">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="manager-framework-1.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/manager-framework/manager-framework">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/manager-web/target/classes"/>
-        <property name="context-root" value="dev-${war_name}"/>
+        <property name="context-root" value="test-manager"/>
     </wb-module>
 </project-modules>

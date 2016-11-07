@@ -5,11 +5,11 @@ import java.awt.Color;
 import org.springframework.core.convert.converter.Converter;
 
 /**
- * 类描述: <br>
- * 创建时间: 2016年3月23日 下午4:40:28 <br>
  * 
- * @author 仲李
- * @version
+ * <br>创建日期：2016年11月2日
+ * @author LIUYUHUI
+ * @since 1.0
+ * @version 1.0
  */
 public class StringToColorConverter implements Converter<String, Color> {
 

@@ -12,21 +12,33 @@
  */
 package com.manager.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * <br>创建日期：2016年10月26日
- * <br><b>Copyright 2016 SHITOU All Rights Reserved</b>
- * @author LIUYUHUI
- * @since 1.0
- * @version 1.0
- */
+import com.manager.service.TestService;
+
+
 @Controller
 public class TestController {
 	
-	@RequestMapping(value="test")
+	private static Logger LOG = LoggerFactory.getLogger(TestController.class);
+	
+	@Autowired
+	private TestService testService;
+	
+	
+	@RequestMapping(value="/test")
 	public String test(){
+		try {
+			String sayHelloWorld = testService.sayHelloWorld();
+			LOG.info(sayHelloWorld);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "index";
 	}
 

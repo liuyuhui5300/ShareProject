@@ -8,10 +8,8 @@
 
 	<!-- 加载配置属性文件 -->
 	<context:property-placeholder ignore-unresolvable="true" location="classpath:config/*.properties" />
-
+	
 	<import resource="/spring-mybatis.xml" />
-	<!-- <import resource="/spring-redis.xml" /> -->
 	<import resource="/spring-service.xml" />
-	<!-- <import resource="/spring-email.xml" /> -->
  
 </beans>
